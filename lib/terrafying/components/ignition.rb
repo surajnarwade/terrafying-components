@@ -84,7 +84,7 @@ EOF
           files: [],
           units: [],
           ssh_group: "cloud",
-          region: Terrafying::Generator.aws.region,
+          region: Terrafying::Root.aws.region,
         }.merge(options)
 
         if ! options[:units].all? { |u| UNIT_REQUIRED_KEYS.all? { |key| u.has_key?(key) } }
