@@ -1,5 +1,5 @@
 
-require 'terrafying/generator'
+require 'terrafying'
 
 module Terrafying
 

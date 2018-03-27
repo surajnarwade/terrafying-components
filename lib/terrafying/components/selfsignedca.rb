@@ -1,6 +1,6 @@
 
+require 'terrafying'
 require 'terrafying/components/ca'
-require 'terrafying/generator'
 
 module Terrafying
 

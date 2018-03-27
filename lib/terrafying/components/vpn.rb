@@ -2,8 +2,8 @@
 require 'digest'
 require 'netaddr'
 
+require 'terrafying'
 require 'terrafying/components/ignition'
-require 'terrafying/generator'
 
 
 IN4MASK = 0xffffffff

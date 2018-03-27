@@ -1,9 +1,9 @@
 
 require 'netaddr'
 
+require 'terrafying'
 require 'terrafying/components/subnet'
 require 'terrafying/components/zone'
-require 'terrafying/generator'
 
 module Terrafying
 

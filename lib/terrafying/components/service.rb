@@ -1,7 +1,7 @@
 
 require 'digest'
 require 'hash/merge_with_arrays'
-require 'terrafying/generator'
+require 'terrafying'
 require 'terrafying/util'
 require 'terrafying/components/auditd'
 require 'terrafying/components/dynamicset'

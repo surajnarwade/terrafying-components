@@ -1,6 +1,6 @@
 
+require 'terrafying'
 require 'terrafying/components/usable'
-require 'terrafying/generator'
 
 require_relative './ports'
 

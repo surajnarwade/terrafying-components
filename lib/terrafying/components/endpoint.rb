@@ -1,8 +1,8 @@
 
+require 'terrafying'
 require 'terrafying/components/loadbalancer'
 require 'terrafying/components/usable'
 require 'terrafying/components/vpc'
-require 'terrafying/generator'
 
 module Terrafying
 
