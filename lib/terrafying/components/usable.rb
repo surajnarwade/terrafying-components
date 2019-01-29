@@ -122,6 +122,21 @@ module Terrafying
         }
       end
 
+      def used_by_security_groups(*security_groups, &block)
+        security_groups.map { |security_group|
+          @ports.select(&block).map.map { |port|
+            resource :aws_security_group_rule, "#{security_group}-to-#{@name}-#{port[:name]}", {
+                       security_group_id: self.ingress_security_group,
+                       type: "ingress",
+                       from_port: from_port(port[:upstream_port]),
+                       to_port: to_port(port[:upstream_port]),
+                       protocol: port[:type] == "udp" ? "udp" : "tcp",
+                       source_security_group_id: security_group,
+                     }
+          }
+        }
+      end
+
     end
 
   end

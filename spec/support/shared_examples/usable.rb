@@ -249,4 +249,27 @@ shared_examples "a usable resource" do
     expect(keys).to all(not_match('0.0.0.0/0'))
     expect(keys).to include(a_string_matching('0-0-0-0-0'))
   end
+
+  it 'should use security groups' do
+    test_resource = described_class.create_in(
+      @vpc, 'some-thing', {
+        ports: [
+          number: 1200
+        ]
+      }
+    )
+
+    test_resource.used_by_security_groups("sg-000")
+
+    rules = test_resource.output_with_children['resource']['aws_security_group_rule'].values
+
+    expect(rules).to include(
+      a_hash_including(
+        from_port: 1200,
+        to_port: 1200,
+        security_group_id: test_resource.ingress_security_group,
+        source_security_group_id: "sg-000",
+      )
+    )
+  end
 end
